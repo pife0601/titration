@@ -9,11 +9,11 @@ export default function ControlPanel({
   maxVt
 }) {
   return (
-    <div className="glass-panel flex-col gap-4">
-      <h2>실험 설정</h2>
+    <div className="glass-panel flex-col gap-2 p-3" style={{ fontSize: '0.9rem' }}>
+      <h2 style={{ fontSize: '1.1rem', marginBottom: '4px' }}>실험 설정</h2>
       
       {/* 플라스크 (분석물질) 설정 */}
-      <div className="mb-4">
+      <div className="mb-2">
         <label>플라스크 용액 (Analyte)</label>
         <select 
           value={analyte.id} 
@@ -37,7 +37,7 @@ export default function ControlPanel({
           </optgroup>
         </select>
 
-        <div className="flex gap-4">
+        <div className="flex gap-2 mt-2">
           <div className="w-full">
             <label>농도 (M)</label>
             <input 
@@ -69,10 +69,10 @@ export default function ControlPanel({
         </div>
       </div>
 
-      <hr style={{ border: 'none', borderTop: '1px solid rgba(255,255,255,0.1)', margin: '10px 0' }} />
+      <hr style={{ border: 'none', borderTop: '1px solid rgba(255,255,255,0.1)', margin: '5px 0' }} />
 
       {/* 뷰렛 (적정액) 설정 */}
-      <div className="mb-4">
+      <div className="mb-2">
         <label>뷰렛 용액 (Titrant)</label>
         <select 
           value={titrant.id} 
@@ -96,7 +96,7 @@ export default function ControlPanel({
           </optgroup>
         </select>
 
-        <div className="w-full">
+        <div className="w-full mt-2">
           <label>농도 (M)</label>
           <input 
             type="number" 
@@ -112,10 +112,10 @@ export default function ControlPanel({
         </div>
       </div>
 
-      <hr style={{ border: 'none', borderTop: '1px solid rgba(255,255,255,0.1)', margin: '10px 0' }} />
+      <hr style={{ border: 'none', borderTop: '1px solid rgba(255,255,255,0.1)', margin: '5px 0' }} />
 
       {/* 지시약 설정 */}
-      <div className="mb-4">
+      <div className="mb-2">
         <label>지시약</label>
         <select 
           value={indicator.id}
@@ -131,9 +131,9 @@ export default function ControlPanel({
       </div>
 
       {/* 적정 슬라이더 */}
-      <div className="mt-4 p-4" style={{ background: 'rgba(59, 130, 246, 0.1)', borderRadius: '8px', border: '1px solid rgba(59, 130, 246, 0.3)' }}>
-        <label style={{ color: '#60a5fa', fontSize: '1rem', marginBottom: '10px' }}>
-          적정액 투입량: <span style={{ fontWeight: 'bold', fontSize: '1.2rem', color: '#fff' }}>{vt.toFixed(1)}</span> mL
+      <div className="mt-2 p-3" style={{ background: 'rgba(59, 130, 246, 0.1)', borderRadius: '8px', border: '1px solid rgba(59, 130, 246, 0.3)' }}>
+        <label style={{ color: '#60a5fa', fontSize: '0.9rem', marginBottom: '5px', display: 'block' }}>
+          적정액 투입량: <span style={{ fontWeight: 'bold', fontSize: '1.1rem', color: '#fff' }}>{vt.toFixed(1)}</span> mL
         </label>
         <input 
           type="range" 

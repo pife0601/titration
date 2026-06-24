@@ -138,8 +138,8 @@ input[type="range"]::-webkit-slider-runnable-track {
   flex-direction: row;
   width: 100vw;
   height: 100vh;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 0.5rem;
+  padding: 0.5rem;
   box-sizing: border-box;
   overflow-x: auto; /* 모바일에서도 가로 스크롤 허용 */
   overflow-y: hidden;
@@ -147,16 +147,16 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 .left-panel {
-  flex: 0 0 350px; /* 고정 너비 */
+  flex: 0 0 280px; /* 고정 너비 (축소) */
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  padding-right: 0.5rem;
+  padding-right: 0.25rem;
 }
 
 /* 웹킷 스크롤바 디자인 (왼쪽 패널용) */
 .left-panel::-webkit-scrollbar {
-  width: 6px;
+  width: 4px;
 }
 .left-panel::-webkit-scrollbar-thumb {
   background-color: rgba(255,255,255,0.2);
@@ -164,14 +164,14 @@ input[type="range"]::-webkit-slider-runnable-track {
 }
 
 .middle-panel {
-  flex: 1 1 500px; /* 가변 너비, 최소 500px */
-  min-width: 400px;
+  flex: 1 1 450px; /* 가변 너비, 최소 350px */
+  min-width: 350px;
   display: flex;
   flex-direction: column;
 }
 
 .right-panel {
-  flex: 0 0 280px; /* 고정 너비 */
+  flex: 0 0 240px; /* 고정 너비 (축소) */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -180,7 +180,7 @@ input[type="range"]::-webkit-slider-runnable-track {
 /* 모바일 화면에서는 강제로 가로 폭을 확보하여 스크롤 유도 */
 @media (max-width: 1024px) {
   .app-layout {
-    min-width: 1100px; /* 가로 배열 유지 */
+    min-width: 900px; /* 가로 배열 유지 가능하도록 조정 */
   }
 }
 
