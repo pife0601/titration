@@ -43,8 +43,7 @@ function App() {
       {/* 왼쪽: 조작 패널 */}
       <div className="left-panel">
         <header>
-          <h1 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>중화적정 시뮬레이터</h1>
-          <p style={{ fontSize: '0.8rem', marginBottom: '1rem' }}>조건을 설정하고 슬라이더를 조작해 적정 곡선을 확인하세요.</p>
+          <h1 style={{ fontSize: '1.2rem', marginBottom: '0.2rem' }}>중화적정 시뮬레이터</h1>
         </header>
 
         <ControlPanel 
