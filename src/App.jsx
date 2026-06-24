@@ -39,9 +39,14 @@ function App() {
   }, [analyte.type, titrant.type]);
 
   return (
-    <div className="app-container">
-      {/* 왼쪽 제어 패널 */}
-      <div>
+    <div className="app-layout">
+      {/* 왼쪽: 조작 패널 */}
+      <div className="left-panel">
+        <header>
+          <h1 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>중화적정 시뮬레이터</h1>
+          <p style={{ fontSize: '0.8rem', marginBottom: '1rem' }}>조건을 설정하고 슬라이더를 조작해 적정 곡선을 확인하세요.</p>
+        </header>
+
         <ControlPanel 
           analyte={analyte} setAnalyte={setAnalyte}
           titrant={titrant} setTitrant={setTitrant}
@@ -51,37 +56,31 @@ function App() {
         />
         
         {warning && (
-          <div className="mt-4 p-3 rounded-lg" style={{ background: 'rgba(239, 68, 68, 0.2)', border: '1px solid rgba(239, 68, 68, 0.5)', color: '#fca5a5' }}>
+          <div className="mt-4 p-3 rounded-lg" style={{ background: 'rgba(239, 68, 68, 0.2)', border: '1px solid rgba(239, 68, 68, 0.5)', color: '#fca5a5', fontSize: '0.9rem' }}>
             {warning}
           </div>
         )}
       </div>
 
-      {/* 오른쪽 메인 콘텐츠 영역 (시각화 및 그래프) */}
-      <div className="main-content">
-        <header>
-          <h1>중화적정 시뮬레이터</h1>
-          <p>분석물질과 적정액의 종류 및 농도를 설정하고, 뷰렛의 슬라이더를 조작하여 적정 곡선과 지시약의 변색을 관찰해보세요.</p>
-        </header>
+      {/* 가운데: 그래프 */}
+      <div className="middle-panel">
+        <TitrationGraph 
+          data={graphData} 
+          currentVt={vt} 
+          currentPh={currentPh}
+          hoverData={hoverData}
+          setHoverData={setHoverData}
+        />
+      </div>
 
-        <div className="visualization-area">
-          {/* 그래프 영역 */}
-          <TitrationGraph 
-            data={graphData} 
-            currentVt={vt} 
-            currentPh={currentPh}
-            hoverData={hoverData}
-            setHoverData={setHoverData}
-          />
-
-          {/* 비커(플라스크) 뷰 영역 */}
-          <FlaskVisualizer 
-            pH={hoverData ? hoverData.pH : currentPh} 
-            indicator={indicator}
-            vt={hoverData ? hoverData.volume : vt}
-            maxVt={maxVt}
-          />
-        </div>
+      {/* 오른쪽: 플라스크 (색깔) */}
+      <div className="right-panel">
+        <FlaskVisualizer 
+          pH={hoverData ? hoverData.pH : currentPh} 
+          indicator={indicator}
+          vt={hoverData ? hoverData.volume : vt}
+          maxVt={maxVt}
+        />
       </div>
     </div>
   );
